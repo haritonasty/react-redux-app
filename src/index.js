@@ -1,22 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import {AppContainer} from 'react-hot-loader';
+import {HashRouter as Router} from 'react-router-dom';
+import {Provider} from 'react-redux';
 
+import App from './App';
+import configureStore from './configureStore';
+
+const store = configureStore();
 
 const render = Component => {
 	ReactDOM.render(
-		<AppContainer>
-			<Component />
-		</AppContainer>,
+		<Provider store={store}>
+			<Router>
+				<AppContainer>
+					<Component/>
+				</AppContainer>
+			</Router>
+		</Provider>,
 		document.getElementById('root'),
 	)
 };
-
 render(App);
 
-// Webpack Hot Module Replacement API
 if (module.hot) {
-	module.hot.accept('./App', () => { render(App) })
+	module.hot.accept('./App', () => {
+		render(App)
+	})
 }

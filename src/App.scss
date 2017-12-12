@@ -1,28 +1,12 @@
-.App {
-  text-align: center;
-}
+@import 'components/MainPage/TodoLists.scss';
+@import 'components/TodoListForm/TodoListForm.scss';
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+.todo-list{
+  position: relative;
+  background-color:  red;
+  height: 100vh;
+  width: 100vw;
 
-.App-header {
-  background-color: #222;
-  height: 130px;
-  padding: 20px;
-  color: whitesmoke;
-}
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {Switch, Route} from 'react-router-dom';
+import MainPage from './components/MainPage/MainPage';
+import TodoListForm from './components/TodoListForm/TodoListForm';
+
 import './App.css';
 
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code>
-        </p>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<section className="todo-list">
+				<div className="todo-list__wrapper">
+					<Switch>
+						<Route  exact path="/" component={MainPage}/>
+						<Route  exact path="/create" component={TodoListForm}/>
+					</Switch>
+				</div>
+			</section>
+		);
+	}
 }
 
 export default App;
