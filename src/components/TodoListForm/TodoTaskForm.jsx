@@ -43,7 +43,7 @@ const TodoTaskForm = ({text, id, dispatch}) => {
 	// }
 	return (
 	<li>
-		<input type="text"  className="create-todo__text"  name="todo"
+		<input autoFocus type="text"  className="create-todo__text"  name="todo"
 		       defaultValue={text}
 			// value={value}
 			   onChange={e => {

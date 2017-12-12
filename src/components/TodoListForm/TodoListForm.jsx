@@ -10,67 +10,73 @@ const mapStateToProps = (state) => ({
 });
 
 
-const TodoListForm = ({history, dispatch, todos}) => {
-	let input;
-	return (
-		<section className="create-todolist">
-			<form
-				id="createTaskForm"
-				name="mainForm"
-				className="create-todolist__form"
-			>
-				<p id="error"></p>
-				<div className="group">
-					<input type="text" required ref={node => {
-						input = node;
-					}} className="create-todolist__text" name="task"/>
-					<span className="highlight"> </span>
-					<span className="bar"> </span>
-					<label className="create-todolist__label">{todos.text}</label>
-				</div>
-				<ul>
-					{todos.map(todo =>
-						<TodoTaskForm
+class TodoListForm extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		let input;
+		return (
+			<section className="create-todolist">
+				<form
+					id="createTaskForm"
+					name="mainForm"
+					className="create-todolist__form"
+				>
+					<p id="error"> </p>
+					<div className="group">
+						<input autoFocus type="text" required ref={node => {
+							input = node;
+						}} className="create-todolist__text" name="task"/>
+						<span className="highlight"> </span>
+						<span className="bar"> </span>
+						<label className="create-todolist__label">{this.props.todos.text}</label>
+					</div>
+					<ul>
+						{this.props.todos.map(todo =>
+							<TodoTaskForm
 
-							key={todo.id}
-							{...todo}
-						/>
-					)}
-				</ul>
-				<button
-					type="button"
-					className="create-todolist__button create-todolist__button_add"
-					onClick={event => {
-						history.push('/');
-						event.preventDefault();
-						if (!input.value.trim()) return;
-						dispatch(addTodoList(input.value, todos));
-						dispatch(deleteTodos());
-						input.value = '';
-					}}
-				>Save
-				</button>
+								key={todo.id}
+								{...todo}
+							/>
+						)}
+					</ul>
+					<button
+						type="button"
+						className="create-todolist__button create-todolist__button_add"
+						onClick={event => {
+							this.props.history.push('/');
+							event.preventDefault();
+							if (!input.value.trim()) return;
+							this.props.dispatch(addTodoList(input.value, this.props.todos));
+							this.props.dispatch(deleteTodos());
+							input.value = '';
+						}}
+					>Save
+					</button>
 
-				<button
-					type="submit"
-					className="create-todo__button create-todo__button_add-task"
-					onClick={event => {
-						event.preventDefault();
-						if (todos.length > 0) {
-							if (!todos[todos.length - 1]) return;
-							if (todos[todos.length - 1].text === "" ) return;
-						}
-						dispatch(addTodoTask());
-					}}
-				>Add Task
+					<button
+						type="submit"
+						className="create-todo__button create-todo__button_add-task"
+						onClick={event => {
+							event.preventDefault();
+							if (this.props.todos.length > 0) {
+								if (!this.props.todos[this.props.todos.length - 1]) return;
+								if (this.props.todos[this.props.todos.length - 1].text === "") return;
+							}
+							this.props.dispatch(addTodoTask());
+						}}
+					>Add Task
+					</button>
+				</form>
+				<button className="create-todolist__button create-todolist__button_close" onClick={() => {
+					this.props.dispatch(deleteTodos());
+					this.props.history.push('/')
+				}}>Close
 				</button>
-			</form>
-			<button className="create-todolist__button create-todolist__button_close" onClick={() => {
-				history.push('/')
-			}}>Close
-			</button>
-		</section>
-	)
+			</section>
+		)
+	}
 };
 
 TodoListForm.propTypes = {
