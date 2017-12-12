@@ -4,7 +4,8 @@ import ButtonNewList from './ButtonNewList';
 
 const MainPage = ({history}) =>(
 	<div>
-		<TodoListsContainer/>
+
+		<TodoListsContainer history={history}/>
 		<ButtonNewList history={history}/>
 	</div>
 );

@@ -13,7 +13,8 @@ class App extends Component {
 				<div className="todo-list__wrapper">
 					<Switch>
 						<Route  exact path="/" component={MainPage}/>
-						<Route  exact path="/create" component={TodoListForm}/>
+						<Route  path="/:id/create" component={TodoListForm}/>
+						<Route  path="/create" component={TodoListForm}/>
 					</Switch>
 				</div>
 			</section>

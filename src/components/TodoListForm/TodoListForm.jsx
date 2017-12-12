@@ -16,6 +16,7 @@ class TodoListForm extends React.Component {
 	}
 	render() {
 		let input;
+		console.log(this.props.match.params.id);
 		return (
 			<section className="create-todolist">
 				<form
