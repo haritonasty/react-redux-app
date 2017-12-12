@@ -1,14 +1,11 @@
 const todolist = (state, action) => {
 	switch (action.type) {
 		case 'ADD_TODOLIST':
+			let notEmptyTodos = action.todos.filter( el => el.text !== "");
 			return {
 				id: action.id,
 				title: action.title,
-				todos:[{
-					id: '0',
-					text: 'Welcome back!',
-					completed: false,
-				}],
+				todos: notEmptyTodos,
 			};
 		default:
 			return state;

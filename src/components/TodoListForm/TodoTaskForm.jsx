@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateTodoTask } from '../../actions';
 
 // class TodoTaskForm extends React.Component {
 // 	constructor(props) {
@@ -34,7 +36,7 @@ import React from 'react';
 // 	}
 // }
 
-const TodoTaskForm = ({text, value}) => {
+const TodoTaskForm = ({text, id, dispatch}) => {
 	let input;
 	// function handleChange(e) {
 	// 	onClick(e.target.value);
@@ -44,11 +46,13 @@ const TodoTaskForm = ({text, value}) => {
 		<input type="text"  className="create-todo__text"  name="todo"
 		       defaultValue={text}
 			// value={value}
-			// onChange={this.handleChange}
+			   onChange={e => {
+				   dispatch(updateTodoTask(id, e.target.value));
+			   }}
 
 		/>
 	</li>
 )};
 
 
-export default TodoTaskForm;
+export default connect()(TodoTaskForm);

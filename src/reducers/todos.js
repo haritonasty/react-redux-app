@@ -3,7 +3,7 @@ const todo = (state, action) => {
 		case 'ADD_TODOTASK':
 			return {
 				id: action.id,
-				text: 'Hello',
+				text: '',
 				completed: false,
 			};
 		default:
@@ -18,6 +18,15 @@ const todos = (state = [], action) => {
 				...state,
 				todo(undefined, action),
 			];
+
+		case 'UPDATE_TODOTASK':
+			let newtodo = state.find((elem) => elem.id === action.id);
+			newtodo.text = action.text;
+			return [...state];
+
+		case 'DELETE_TODOS':
+			return [];
+
 		default:
 			return state;
 	}
