@@ -18,10 +18,6 @@ const todolist = (state, action) => {
 const todolists = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_TODOLIST':
-			console.log([
-				...state,
-				todolist(undefined, action),
-			]);
 			return [
 				...state,
 				todolist(undefined, action),

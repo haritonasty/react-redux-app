@@ -7,3 +7,10 @@ export const addTodoList = (title) => {
 	title,
 	};
 };
+
+export const addTodoTask = () => {
+	return {
+		type: 'ADD_TODOTASK',
+		id: v4(),
+	};
+};
