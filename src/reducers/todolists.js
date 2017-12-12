@@ -19,6 +19,13 @@ const todolists = (state = [], action) => {
 				...state,
 				todolist(undefined, action),
 			];
+
+		case 'UPDATE_TODOLIST':
+			let notEmptyTodos = action.todos.filter( el => el.text !== "");
+			let newtodolist = state.find((elem) => elem.id === action.id);
+			newtodolist.title = action.title;
+			newtodolist.todos = notEmptyTodos;
+			return [...state];
 		default:
 			return state;
 	}

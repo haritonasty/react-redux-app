@@ -6,7 +6,7 @@ import { history } from 'react-router-dom';
 const TodoListItem = ({title, todos, id, history}) => (
 	<li>
 		<span>{title}</span>
-		<button type="button" onClick={() => {history.push(`/${id}/create`)}}>  Edit </button>
+		<button type="button" onClick={() => {history.push(`/${id}/edit`)}}>  Edit </button>
 		<TodoList todos={todos}/>
 	</li>
 

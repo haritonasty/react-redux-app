@@ -3,8 +3,8 @@ const todo = (state, action) => {
 		case 'ADD_TODOTASK':
 			return {
 				id: action.id,
-				text: '',
-				completed: false,
+				text: action.text,
+				completed: action.completed,
 			};
 		default:
 			return state;

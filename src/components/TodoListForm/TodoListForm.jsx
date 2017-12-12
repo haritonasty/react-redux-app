@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {addTodoList, addTodoTask, deleteTodos} from '../../actions';
+import {addTodoList, addTodoTask, deleteTodos, updateTodoList} from '../../actions';
 
 import TodoTaskForm from './TodoTaskForm';
 
 const mapStateToProps = (state) => ({
-	todos: state.todos
+	todos: state.todos,
+	todolists: state.todolists,
 });
 
 
@@ -16,7 +17,21 @@ class TodoListForm extends React.Component {
 	}
 	render() {
 		let input;
-		console.log(this.props.match.params.id);
+		let id = this.props.match.params.id;
+		let todos = this.props.todos;
+		const mode = id ? 'edit' : 'new';
+		let currentTodoList;
+		if (mode === 'edit'){
+			currentTodoList = this.props.todolists.find(elem => elem.id === id);
+
+		}
+		if (mode === 'edit' && !todos[todos.length-1]) {
+			currentTodoList.todos.forEach(el => {
+				this.props.dispatch(addTodoTask(el.id, el.completed, el.text));
+				});
+		}
+		const title = (mode === 'edit') ? `${currentTodoList.title}` : '';
+		console.log(currentTodoList);
 		return (
 			<section className="create-todolist">
 				<form
@@ -26,18 +41,20 @@ class TodoListForm extends React.Component {
 				>
 					<p id="error"> </p>
 					<div className="group">
-						<input autoFocus type="text" required ref={node => {
+						<input autoFocus type="text"
+						       defaultValue={title}
+						       required ref={node => {
 							input = node;
 						}} className="create-todolist__text" name="task"/>
 						<span className="highlight"> </span>
 						<span className="bar"> </span>
-						<label className="create-todolist__label">{this.props.todos.text}</label>
+						<label className="create-todolist__label">title</label>
 					</div>
 					<ul>
-						{this.props.todos.map(todo =>
+						{this.props.todos.map((todo, idx) =>
 							<TodoTaskForm
 
-								key={todo.id}
+								key={idx}
 								{...todo}
 							/>
 						)}
@@ -49,7 +66,8 @@ class TodoListForm extends React.Component {
 							this.props.history.push('/');
 							event.preventDefault();
 							if (!input.value.trim()) return;
-							this.props.dispatch(addTodoList(input.value, this.props.todos));
+							if (mode === 'edit') this.props.dispatch(updateTodoList(id, input.value, this.props.todos));
+							else this.props.dispatch(addTodoList(input.value, this.props.todos));
 							this.props.dispatch(deleteTodos());
 							input.value = '';
 						}}

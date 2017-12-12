@@ -1,6 +1,6 @@
 import  v4  from 'uuid';
 
-export const addTodoList = (title , todos) => {
+export const addTodoList = ( title , todos) => {
 	return {
 	type: 'ADD_TODOLIST',
 	id: v4(),
@@ -9,10 +9,21 @@ export const addTodoList = (title , todos) => {
 	};
 };
 
-export const addTodoTask = () => {
+export const updateTodoList = ( id, title , todos) => {
+	return {
+	type: 'UPDATE_TODOLIST',
+	id,
+	title,
+	todos,
+	};
+};
+
+export const addTodoTask = (id = v4(), completed = false, text = '') => {
 	return {
 		type: 'ADD_TODOTASK',
-		id: v4(),
+		id,
+		completed,
+		text,
 	};
 };
 
