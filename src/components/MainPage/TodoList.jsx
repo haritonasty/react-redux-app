@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Todo from './Todo';
-import { updateTodoListCompleted } from '../../actions';
 import { connect } from 'react-redux';
 
-const TodoList = ({ todos, idList, dispatch }) => (
+const TodoList = ({ todos, dispatch, onClickTodo }) => (
 	<ul>
 		{todos.map(todo =>
 			<Todo
 				key={todo.id}
 				{...todo}
-				onClick={(id) => dispatch(updateTodoListCompleted(idList, id ))}
-				idList={idList}
+				onClick={() => onClickTodo(todo.id)}
 			/>
 		)}
 	</ul>

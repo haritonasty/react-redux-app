@@ -18,12 +18,11 @@ export const updateTodoList = ( id, title , todos) => {
 	};
 };
 
-export const updateTodoListCompleted = ( idList, id , completed) => {
+export const updateTodoListCompleted = ( idList, id) => {
 	return {
 		type: 'UPDATE_TODOLIST_COMPLETED',
 		idList,
 		id,
-		completed
 	};
 };
 

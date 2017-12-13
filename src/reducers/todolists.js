@@ -31,7 +31,6 @@ const todolists = (state = [], action) => {
 			let currentTodoList = state.find((elem) => elem.id === action.idList);
 			let currentTodo = currentTodoList.todos.find( el => el.id === action.id);
 			currentTodo.completed = !currentTodo.completed;
-			console.log(currentTodo.completed);
 			return [...state];
 		default:
 			return state;

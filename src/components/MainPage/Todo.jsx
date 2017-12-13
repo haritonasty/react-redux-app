@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Todo = ({ text, completed, id, idList,  onClick }) => (
+const Todo = ({ text, completed, onClick }) => (
 	<li>
 		<div className="md-checkbox">
 			<input
-				onChange={e=>{onClick(id);}}
-				defaultChecked={completed}
+				onChange={()=>{onClick()}}
+				checked={completed}
 				id="todo"
 				type="checkbox"
 				className="tasks__item__checkbox"/>

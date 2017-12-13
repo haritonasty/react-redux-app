@@ -6,7 +6,7 @@ import TodoListForm from './TodoListForm';
 
 const mapStateToProps = (state) => ({
 	todos: state.todos,
-	todolists: state.todolists,
+	todolists: state.todolists
 });
 
 const mapDispatchToProps = (dispatch) => {

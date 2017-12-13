@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import TodoLists from './TodoLists';
 
@@ -7,6 +8,6 @@ const mapStateToProps = (state) => ({
 });
 
 
-const TodoListsContainer = connect(mapStateToProps)(TodoLists );
+const TodoListsContainer = connect(mapStateToProps)(TodoLists);
 
 export default TodoListsContainer;

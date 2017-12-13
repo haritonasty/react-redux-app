@@ -16,7 +16,10 @@ const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDel
 				   }}
 			/>
 			{/*<img className="tasks__item__img-delete" src="img/deleteTask.svg" alt="remove task"/>*/}
-			<span onClick={()=>{onClickDelete()}}> delete </span>
+			<span onClick={()=>{
+				onClickDelete();
+
+			}}> delete </span>
 		</li>
 	)};
 

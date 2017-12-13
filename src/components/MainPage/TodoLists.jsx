@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TodoListItem from './TodoListItem';
 
 
-const TodoLists = ({ todolists, history, dispatch }) => {
+const TodoLists = ({ todolists, history}) => {
 	return (
 
 			<ul>
@@ -12,7 +12,6 @@ const TodoLists = ({ todolists, history, dispatch }) => {
 						history={history}
 						key={todolist.id}
 						{...todolist}
-						dispatch={dispatch}
 					/>
 				)}
 			</ul>

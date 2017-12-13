@@ -11,7 +11,7 @@ const configureStore = () => {
 
 	store.subscribe(() => {
 		saveState({
-			todolists: store.getState().todolists
+			todolists: store.getState().todolists,
 		});
 	});
 

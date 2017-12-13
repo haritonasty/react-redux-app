@@ -5,7 +5,6 @@ import TodoTaskForm from './TodoTaskForm';
 
 
 const TodoListForm = ({todos, match, history, todolists, events}) => {
-
 	let input;
 	let currentTodoList;
 	let id = match.params.id;
@@ -13,11 +12,11 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 	const mode = id ? 'edit' : 'new';
 
 	if (mode === 'edit') currentTodoList = todolists.find(elem => elem.id === id);
-	if (mode === 'edit' && !todos[todos.length - 1]) {
-		currentTodoList.todos.forEach(el => {
-			events.onClickButtonAddTask(el.id, el.completed, el.text)
-		});
-	}
+		if (mode === 'edit' && !todos[todos.length - 1]) {
+			currentTodoList.todos.forEach(el => {
+				events.onClickButtonAddTask(el.id, el.completed, el.text);
+			});
+		}
 
 	const title = (mode === 'edit') ? `${currentTodoList.title}` : '';
 
@@ -44,13 +43,15 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 							{...todo}
 							onClickText={(text) => events.onClickText(todo.id, text)}
 							onClickCheckbox={(completed) => events.onClickCheckbox(todo.id, completed)}
-							onClickDelete={() => events.onClickDelete(todo.id)}
+							onClickDelete={() => {
+								if (todos.length === 1) events.onClickText(todo.id, '');
+								else events.onClickDelete(todo.id);
+							}}
 						/>
 					)}
 				</ul>
 				<button type="button" className="create-todolist__button create-todolist__button_add"
 				        onClick={event => {
-					        history.push('/');
 					        event.preventDefault();
 					        if (!input.value.trim()) return;
 
@@ -59,6 +60,7 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 					        events.onClickButtonClose();
 
 					        input.value = '';
+					        history.push('/');
 				        }}
 				>Save
 				</button>
