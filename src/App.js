@@ -10,13 +10,11 @@ class App extends Component {
 	render() {
 		return (
 			<section className="todo-list">
-				<div className="todo-list__wrapper">
 					<Switch>
 						<Route  exact path="/" component={MainPage}/>
 						<Route  path="/:id/edit" component={TodoListFormContainer}/>
 						<Route  path="/create" component={TodoListFormContainer}/>
 					</Switch>
-				</div>
 			</section>
 		);
 	}

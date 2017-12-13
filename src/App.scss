@@ -1,13 +1,36 @@
-@import 'components/MainPage/TodoLists.scss';
+@import 'media.scss';
 @import 'components/TodoListForm/TodoListForm.scss';
+@import 'components/MainPage/Button/ButtonNewList.scss';
+@import 'components/MainPage/TodoLists/TodoLists.scss';
+@import 'components/MainPage/TodoList/TodoList.scss';
 
-.todo-list{
-  position: relative;
-  background-color:  red;
-  height: 70vh;
-  width: 70vw;
-  margin: 50px;
+body{
+  font-size:1vw;
+}
+
+.todo-list {
+  //background-color: rgba(179, 255, 255, 1);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
 
 
+  &__wrapper {
+	min-width: 100%;
+	background-color: white;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: auto;
+	position: relative;
+	@include respond-to(handhelds) { background-color: azure;}
+	@include respond-to(medium-screens) {  background-color: green; }
+	@include respond-to(wide-screens) {  background-color: yellow; }
+  }
 
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TodoList from './TodoList';
-import { history } from 'react-router-dom';
+import TodoList from '../TodoList/TodoList';
 
-import { updateTodoListCompleted } from '../../actions';
+import { updateTodoListCompleted } from '../../../actions/index';
 import { connect } from 'react-redux';
 
 
@@ -21,9 +20,13 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const TodoListItem = ({title, todos, id, history, dispatch, onClickTodo}) => (
-	<li>
-		<span>{title}</span>
-		<button type="button" onClick={() => {history.push(`/${id}/edit`)}}>  Edit </button>
+	<li className="todolists__item">
+		<div className="todolists__header">
+			<span className="todolists__title">{title}</span>
+			<img className="todolists__edit" src='../../../img/edit.png'
+			        onClick={() => {history.push(`/${id}/edit`)}}
+			/>
+		</div>
 		<TodoList todos={todos}  onClickTodo={(idItem)=>{onClickTodo(id,idItem)}}/>
 	</li>
 

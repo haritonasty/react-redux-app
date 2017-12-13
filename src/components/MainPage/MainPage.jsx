@@ -1,12 +1,11 @@
 import React from 'react';
-import TodoListsContainer from './TodoListsContainer';
-import ButtonNewList from './ButtonNewList';
+import TodoLists from './TodoLists/TodoLists';
+import ButtonNewList from './Button/ButtonNewList';
 import { connect } from 'react-redux';
 
 const MainPage = ({history}) =>(
-	<div>
-
-		<TodoListsContainer history={history}/>
+	<div className="todo-list__wrapper">
+		<TodoLists history={history}/>
 		<ButtonNewList history={history}/>
 	</div>
 );

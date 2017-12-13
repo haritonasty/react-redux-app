@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800&subset=cyrillic");
+.todolists {
+  overflow: visible;
+  min-height: 100vh;
+  position: relative;
+  list-style-type: none;
+  padding: 1.5rem  0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100vw; }
+  .todolists__item {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0.2rem;
+    margin: 0 1.2rem 1.2rem 1.2rem;
+    position: relative;
+    border: 0.13rem solid #00BBD3;
+    width: 18rem; }
+  .todolists__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 1.6rem;
+    background-color: #00BBD3; }
+  .todolists__title {
+    margin: 0.2rem 0.4rem;
+    color: white;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 1.14rem;
+    width: 80%;
+    overflow: hidden; }

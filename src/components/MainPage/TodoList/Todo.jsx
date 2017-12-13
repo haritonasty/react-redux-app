@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Todo = ({ text, completed, onClick }) => (
-	<li>
+const Todo = ({ text, completed, id, onClick }) => (
+	<li className="tasks__item">
 		<div className="md-checkbox">
-			<input
+			<input id={id} type="checkbox" className="tasks__item__checkbox"
 				onChange={()=>{onClick()}}
 				checked={completed}
-				id="todo"
-				type="checkbox"
-				className="tasks__item__checkbox"/>
-			<label  htmlFor="todo" className="tasks__item__text">{text}</label>
+			/>
+			<label  htmlFor={id} className="tasks__item__text">{text}</label>
 		</div>
 	</li>
 );

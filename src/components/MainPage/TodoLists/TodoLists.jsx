@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import TodoListItem from './TodoListItem';
+
+const mapStateToProps = (state) => ({
+	todolists: state.todolists
+});
 
 
 const TodoLists = ({ todolists, history}) => {
 	return (
 
-			<ul>
+			<ul className="todolists" data-masonry='{ "itemSelector": ".todolists__item", "fitWidth": true}'>
 				{todolists.map(todolist =>
 					<TodoListItem
 						history={history}
@@ -25,4 +30,6 @@ TodoLists.propTypes = {
 	}).isRequired).isRequired,
 };
 
-export default TodoLists;
+
+
+export default connect(mapStateToProps)(TodoLists);

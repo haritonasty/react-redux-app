@@ -5,6 +5,7 @@ import { loadState, saveState } from './localStorage';
 
 
 const configureStore = () => {
+
 	const initalState = loadState();
 
 	const store =  createStore(todolistsApp, initalState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

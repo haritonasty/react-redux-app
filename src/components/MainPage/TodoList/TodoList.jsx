@@ -4,7 +4,7 @@ import Todo from './Todo';
 import { connect } from 'react-redux';
 
 const TodoList = ({ todos, dispatch, onClickTodo }) => (
-	<ul>
+	<ul className="tasks" >
 		{todos.map(todo =>
 			<Todo
 				key={todo.id}
