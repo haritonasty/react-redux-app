@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { updateTodoListCompleted } from '../../actions';
 
 
-const Todo = ({ text, completed, id, onClick, idList, dispatch }) => (
+const Todo = ({ text, completed, id, idList,  onClick }) => (
 	<li>
 		<div className="md-checkbox">
 			<input
-				onChange={e=>{
-					dispatch(updateTodoListCompleted(idList, id, e.target.checked ))
-				}}
-				checked={completed}
+				onChange={e=>{onClick(id);}}
+				defaultChecked={completed}
 				id="todo"
 				type="checkbox"
 				className="tasks__item__checkbox"/>
@@ -24,4 +20,4 @@ Todo.propTypes = {
 	text: PropTypes.string.isRequired,
 };
 
-export default connect()(Todo);
+export default Todo;

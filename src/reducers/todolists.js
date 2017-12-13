@@ -30,7 +30,8 @@ const todolists = (state = [], action) => {
 		case 'UPDATE_TODOLIST_COMPLETED':
 			let currentTodoList = state.find((elem) => elem.id === action.idList);
 			let currentTodo = currentTodoList.todos.find( el => el.id === action.id);
-			currentTodo.completed = action.completed;
+			currentTodo.completed = !currentTodo.completed;
+			console.log(currentTodo.completed);
 			return [...state];
 		default:
 			return state;

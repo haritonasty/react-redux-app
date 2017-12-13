@@ -1,3 +1,5 @@
+// import  v4  from 'uuid';
+
 const todo = (state, action) => {
 	switch (action.type) {
 		case 'ADD_TODOTASK':
@@ -21,6 +23,11 @@ const todos = (state = [], action) => {
 
 		case 'DELETE_TODOTASK':
 			state = state.filter(elem=> elem.id !== action.id);
+			// if (state.length === 0) return [{
+			// 	id: v4(),
+			// 	text: '',
+			// 	completed: false,
+			// }];
 			return [...state];
 
 		case 'UPDATE_TODOTASK_TEXT':

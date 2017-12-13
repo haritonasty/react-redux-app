@@ -12,6 +12,7 @@ const TodoLists = ({ todolists, history, dispatch }) => {
 						history={history}
 						key={todolist.id}
 						{...todolist}
+						dispatch={dispatch}
 					/>
 				)}
 			</ul>

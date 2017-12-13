@@ -10,8 +10,8 @@ const TodoList = ({ todos, idList, dispatch }) => (
 			<Todo
 				key={todo.id}
 				{...todo}
-				// onClick={(id,completed) => dispatch(updateTodoListCompleted(idList, id, completed ))}
-				idList
+				onClick={(id) => dispatch(updateTodoListCompleted(idList, id ))}
+				idList={idList}
 			/>
 		)}
 	</ul>
