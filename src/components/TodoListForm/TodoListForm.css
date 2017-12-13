@@ -1,8 +1,157 @@
 .create-todolist {
+  padding-top: 1rem;
+  width: 80vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  position: relative; }
+  .create-todolist__button {
+    position: absolute;
+    bottom: 2.2rem; }
+    .create-todolist__button_add-task {
+      left: 2.2rem; }
+    .create-todolist__button_save {
+      right: 6.6rem; }
+    .create-todolist__button_close {
+      right: 2.2rem; }
+
+.create-todolist__form {
+  margin-top: 0.5rem;
+  margin-left: -1.2rem;
+  display: flex;
+  flex-direction: column;
+  width: 31rem;
+  justify-content: space-between;
+  align-items: center; }
+
+.group {
+  position: relative; }
+
+.create-todolist__text {
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.2rem;
+  width: 15rem;
+  border: none;
+  border-bottom: 1px solid #757575; }
+
+.create-todolist__text:focus {
+  outline: none; }
+
+.create-todolist__label {
+  color: #999;
+  font-size: 1.2rem;
   position: absolute;
-  top: 30px;
-  left: 30px;
-  background-color: rgba(23, 25, 24, 0.6);
-  margin: 0 auto;
-  height: 40vh;
-  width: 40vw; }
+  pointer-events: none;
+  left: 0.2rem;
+  top: 8px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+  font-family: "Open Sans";
+  font-weight: 400; }
+
+.create-todolist__text:focus ~ .create-todolist__label, .create-todolist__text:valid ~ .create-todolist__label {
+  top: -0.7rem;
+  font-size: 0.85rem;
+  color: #00BBD3; }
+
+.bar {
+  position: relative;
+  display: block;
+  width: 15rem; }
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background: #00BBD3;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all; }
+
+.bar:before {
+  left: 50%; }
+
+.bar:after {
+  right: 50%; }
+
+.create-todolist__text:focus ~ .bar:before, .create-todolist__text:focus ~ .bar:after {
+  width: 50%; }
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5; }
+
+.create-todolist__text:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease; }
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #00BBD3; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #00BBD3; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+@keyframes inputHighlighter {
+  from {
+    background: #00BBD3; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+.tasks-form {
+  width: 16rem;
+  padding: 0.1rem 0.3rem;
+  margin: 0.3rem 0;
+  overflow-y: auto;
+  display: flex;
+  height: 18rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style-type: none; }
+
+.tasks-form__item {
+  width: 90%;
+  min-height: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.1rem 0 0.1rem; }
+
+.tasks-form__text {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1rem;
+  margin-left: 0.5rem; }
+
+.tasks-form__text_done {
+  color: #00BBD3;
+  text-decoration: line-through; }
+
+input[type="checkbox"] {
+  outline: 0;
+  margin-right: 10px; }
+
+input[type="checkbox"]:checked {
+  background: #00BBD3;
+  border: 2px solid #00BBD3; }

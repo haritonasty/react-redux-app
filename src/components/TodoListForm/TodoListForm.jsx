@@ -34,9 +34,9 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 					/>
 					<span className="highlight"> </span>
 					<span className="bar"> </span>
-					<label className="create-todolist__label">title</label>
+					<label className="create-todolist__label">Title</label>
 				</div>
-				<ul>
+				<ul className="tasks-form">
 					{todos.map((todo, idx) =>
 						<TodoTaskForm
 							key={idx}
@@ -50,7 +50,7 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 						/>
 					)}
 				</ul>
-				<button type="button" className="create-todolist__button create-todolist__button_add"
+				<button type="button" className="create-todolist__button create-todolist__button_save"
 				        onClick={event => {
 					        event.preventDefault();
 					        if (!input.value.trim()) return;
@@ -65,7 +65,7 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 				>Save
 				</button>
 
-				<button type="submit" className="create-todo__button create-todo__button_add-task"
+				<button type="submit" className="create-todolist__button create-todolist__button_add-task"
 				        onClick={event => {
 					        event.preventDefault();
 					        if (todos.length > 0) {

@@ -2,24 +2,24 @@ import React from 'react';
 
 const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDelete}) => {
 	return (
-		<li>
-			<input type="checkbox" className="tasks__item__checkbox"
+		<li className="tasks-form__item">
+			<input type="checkbox" className="tasks-form__item__checkbox"
 			       onChange={e=>{
 				       onClickCheckbox(e.target.checked);
 			       }}
 			       checked={completed}
 				/>
-			<input autoFocus type="text"  className="create-todo__text"  name="todo"
+			<input autoFocus type="text"  className="tasks-form__text"  name="todo"
 			       value={text}
 				   onChange={e => {
 					   onClickText(e.target.value);
 				   }}
 			/>
-			{/*<img className="tasks__item__img-delete" src="img/deleteTask.svg" alt="remove task"/>*/}
-			<span onClick={()=>{
-				onClickDelete();
-
-			}}> delete </span>
+			<img className="tasks-form__item__img-delete" src="img/deleteTask.svg" alt="remove task"
+			     onClick={()=>{
+				     onClickDelete();
+			     }}
+			/>
 		</li>
 	)};
 
