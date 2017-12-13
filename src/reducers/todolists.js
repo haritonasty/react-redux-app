@@ -26,6 +26,12 @@ const todolists = (state = [], action) => {
 			newtodolist.title = action.title;
 			newtodolist.todos = notEmptyTodos;
 			return [...state];
+
+		case 'UPDATE_TODOLIST_COMPLETED':
+			let currentTodoList = state.find((elem) => elem.id === action.idList);
+			let currentTodo = currentTodoList.todos.find( el => el.id === action.id);
+			currentTodo.completed = action.completed;
+			return [...state];
 		default:
 			return state;
 	}

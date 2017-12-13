@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TodoListItem from './TodoListItem';
 
 
-const TodoLists = ({ todolists, history }) => {
+const TodoLists = ({ todolists, history, dispatch }) => {
 	return (
 
 			<ul>

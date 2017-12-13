@@ -18,6 +18,15 @@ export const updateTodoList = ( id, title , todos) => {
 	};
 };
 
+export const updateTodoListCompleted = ( idList, id , completed) => {
+	return {
+		type: 'UPDATE_TODOLIST_COMPLETED',
+		idList,
+		id,
+		completed
+	};
+};
+
 export const addTodoTask = (id = v4(), completed = false, text = '') => {
 	return {
 		type: 'ADD_TODOTASK',
@@ -27,11 +36,19 @@ export const addTodoTask = (id = v4(), completed = false, text = '') => {
 	};
 };
 
-export const updateTodoTask = (id, text) => {
+export const updateTodoTaskText = (id, text) => {
 	return {
-		type: 'UPDATE_TODOTASK',
+		type: 'UPDATE_TODOTASK_TEXT',
 		id,
 		text,
+	};
+};
+
+export const updateTodoTaskCompleted = (id, completed) => {
+	return {
+		type: 'UPDATE_TODOTASK_COMPLETED',
+		id,
+		completed
 	};
 };
 

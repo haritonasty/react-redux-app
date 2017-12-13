@@ -96,7 +96,7 @@ class TodoListForm extends React.Component {
 			</section>
 		)
 	}
-};
+}
 
 TodoListForm.propTypes = {
 	dispatch: PropTypes.func.isRequired,
