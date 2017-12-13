@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateTodoTaskText, updateTodoTaskCompleted } from '../../actions';
+import { updateTodoTaskText, updateTodoTaskCompleted, deleteTodoTask } from '../../actions';
 
 const TodoTaskForm = ({text, id, dispatch, completed}) => {
 	let input;
@@ -24,7 +24,14 @@ const TodoTaskForm = ({text, id, dispatch, completed}) => {
 			   }}
 
 		/>
-		<img className="tasks__item__img-delete" src="../deleteTask.svg" alt="remove task"/>
+		{/*<img className="tasks__item__img-delete" src="/img/deleteTask.svg" alt="remove task"/>*/}
+		<span
+			onClick={e=>{
+				dispatch(deleteTodoTask(id));
+			}}
+		>
+			delete
+		</span>
 	</li>
 )};
 

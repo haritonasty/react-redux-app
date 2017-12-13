@@ -58,3 +58,10 @@ export const deleteTodos = () => {
 	};
 };
 
+export const deleteTodoTask = (id) => {
+	return {
+		type: 'DELETE_TODOTASK',
+		id,
+	};
+};
+

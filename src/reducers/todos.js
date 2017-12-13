@@ -19,13 +19,17 @@ const todos = (state = [], action) => {
 				todo(undefined, action),
 			];
 
+		case 'DELETE_TODOTASK':
+			state = state.filter(elem=> elem.id !== action.id);
+			return [...state];
+
 		case 'UPDATE_TODOTASK_TEXT':
-			let newtodotext = state.find((elem) => elem.id === action.id);
+			let newtodotext = state.find(elem => elem.id === action.id);
 			newtodotext.text = action.text;
 			return [...state];
 
 		case 'UPDATE_TODOTASK_COMPLETED':
-			let newtodocompleted = state.find((elem) => elem.id === action.id);
+			let newtodocompleted = state.find(elem => elem.id === action.id);
 			newtodocompleted.completed = action.completed;
 			return [...state];
 
