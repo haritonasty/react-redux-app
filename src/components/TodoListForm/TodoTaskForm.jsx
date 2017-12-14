@@ -10,7 +10,7 @@ const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDel
 			       }}
 			       checked={completed}
 				/>
-			<input autoFocus type="text"  className="tasks-form__text"  name="todo"
+			<input autoFocus type="text"  className="tasks-form__text"  name="todo" maxlength="22"
 			       value={text}
 				   onChange={e => {
 					   onClickText(e.target.value);

@@ -40,20 +40,6 @@ class TodoLists extends React.Component {
 
 }
 
-// const TodoLists = ({ todolists, history}) => {
-// 	return (
-// 			<ul className="todolists" data-masonry='{ "itemSelector": ".todolists__item", "fitWidth": true}'>
-// 				{todolists.map(todolist =>
-// 					<TodoListItem
-// 						history={history}
-// 						key={todolist.id}
-// 						{...todolist}
-// 					/>
-// 				)}
-// 			</ul>
-// 	);
-// };
-
 TodoLists.propTypes = {
 	todolists: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.string.isRequired,

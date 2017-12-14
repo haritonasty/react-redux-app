@@ -26,7 +26,7 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 			<form id="createTaskForm" name="mainForm" className="create-todolist__form">
 				<p id="error"> </p>
 				<div className="group">
-					<input autoFocus type="text" className="create-todolist__text" name="task"
+					<input autoFocus required type="text" className="create-todolist__text" name="task" maxlength="22"
 					       defaultValue={title}
 					       ref={node => {input = node;
 					       }}

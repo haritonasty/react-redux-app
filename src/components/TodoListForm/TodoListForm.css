@@ -95,8 +95,11 @@
 
 .create-todolist__text:focus ~ .create-todolist__label, .create-todolist__text:valid ~ .create-todolist__label {
   top: -0.7rem;
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: #00BBD3; }
+
+.create-todolist__text:invalid {
+  box-shadow: none; }
 
 .bar {
   position: relative;
@@ -186,7 +189,7 @@
       margin-top: 0.8rem; } }
 
 .tasks-form__item {
-  width: 90%;
+  width: 100%;
   min-height: 1.8rem;
   display: flex;
   justify-content: space-between;
@@ -198,7 +201,8 @@
   font-family: "Open Sans";
   font-weight: 400;
   font-size: 1rem;
-  margin-left: 0.5rem; }
+  margin-left: 0.5rem;
+  margin-right: 0.5rem; }
 
 .tasks-form__text_done {
   color: #00BBD3;
