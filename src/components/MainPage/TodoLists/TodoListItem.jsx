@@ -8,6 +8,7 @@ import imgEdit from '../../../img/edit.png';
 import imgDelete from '../../../img/deleteTodolist.png';
 
 
+
 const mapStateToProps = (state) => ({
 	todolists: state.todolists,
 });
@@ -23,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const TodoListItem = ({title, todos, id, history, dispatch, onClickTodo, onClickDeleteTodolist}) => {
+const TodoListItem = ({title, todos, id, history, onClickTodo, onClickDeleteTodolist}) => {
 
 	let li;
 
@@ -43,6 +44,14 @@ const TodoListItem = ({title, todos, id, history, dispatch, onClickTodo, onClick
 
 				     }}
 				/>
+			</div>
+			<div className="todolists__progressbar">
+				<div className="todolists__progressbar_done"
+				     style={{
+				     	width:`${todos.length > 0 ? 100*todos.filter(todo => todo.completed === true).length / todos.length : 0}%`
+				     }}
+					>
+				</div>
 			</div>
 			<TodoList todos={todos} onClickTodo={(idItem) => {
 				onClickTodo(id, idItem)

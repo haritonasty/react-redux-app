@@ -12,6 +12,24 @@
   flex-wrap: wrap;
   width: 100vw;
 
+  &__progressbar{
+	margin: 0 auto 0 auto;
+	width:100%;
+	//border-radius: 1rem;
+	height: 0.2rem;
+	background-color: #00BBD3;
+	position: relative;
+
+
+	&_done{
+	  border-top-right-radius: 1rem;
+	  border-bottom-right-radius: 1rem;
+	  height: 0.2rem;
+	  background-color: #FF9800;
+	}
+  }
+
+
 
   &__item {
 
@@ -54,6 +72,12 @@
   }
 
   &__edit{
+	margin-top: 0.2rem;
+	margin-right: 0.2rem;
+  }
 
+  &__delete{
+	margin-top: 0.2rem;
+	margin-right: 0.6rem;
   }
 }

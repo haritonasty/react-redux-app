@@ -10,13 +10,13 @@ const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDel
 			       }}
 			       checked={completed}
 			/>
-			<input autoFocus type="text" className="tasks-form__text" name="todo" maxlength="22"
+			<input autoFocus type="text" className="tasks-form__text" name="todo" maxLength="22"
 			       value={text}
 			       onChange={e => {
 				       onClickText(e.target.value);
 			       }}
 			       onKeyDown={e => {
-				       if (e.ctrlKey && e.keyCode == 13) {
+				       if (e.ctrlKey && e.keyCode === 13) {
 					       onCtrlEnter();
 				       }
 			       }}
