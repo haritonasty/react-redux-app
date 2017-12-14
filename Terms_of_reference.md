@@ -53,8 +53,7 @@ Flexbox, Grid и т.д.
 - [x] Реализация удаления пункта
 - [x] Реализация редактирования названия TODO-листа
 - [x] Реализация возможности пометить выполненными пункты TODO-листа
-- [x] Публикация приложения с помощью github pages
-   https://haritonasty.github.io/react-redux-app/build/index.html#/
+- [x] Публикация приложения с помощью github pages [чпоньк](https://haritonasty.github.io/react-redux-app/build/index.html#/)
 - [x] Адаптивный/отзывчивый дизайн
 - [x] Полифиллы для IE11
 - [x] Написание стилей с помощью SASS
