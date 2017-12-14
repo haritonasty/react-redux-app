@@ -23,6 +23,13 @@ class TodoLists extends React.Component {
 		});
 	}
 
+	componentDidUpdate(){
+		new Masonry(".todolists", {
+			itemSelector: ".todolists__item",
+			fitWidth: true
+		});
+	}
+
 	render() {
 		return (
 			<ul className="todolists" >

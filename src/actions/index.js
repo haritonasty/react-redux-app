@@ -26,6 +26,15 @@ export const updateTodoListCompleted = ( idList, id) => {
 	};
 };
 
+export const deleteTodolist = ( idList) => {
+	return {
+		type: 'DELETE_TODOLIST',
+		idList,
+	};
+};
+
+
+
 export const addTodoTask = (id = v4(), completed = false, text = '') => {
 	return {
 		type: 'ADD_TODOTASK',

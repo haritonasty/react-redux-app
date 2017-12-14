@@ -29,6 +29,10 @@
     position: relative;
     border: 0.13rem solid #00BBD3;
     width: 18rem; }
+    .todolists__item_hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s, opacity 0.3s linear; }
   .todolists__header {
     display: flex;
     align-items: flex-start;

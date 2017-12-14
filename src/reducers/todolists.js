@@ -32,6 +32,10 @@ const todolists = (state = [], action) => {
 			let currentTodo = currentTodoList.todos.find( el => el.id === action.id);
 			currentTodo.completed = !currentTodo.completed;
 			return [...state];
+
+		case 'DELETE_TODOLIST':
+			return state.filter((elem) => elem.id !== action.idList);
+
 		default:
 			return state;
 	}

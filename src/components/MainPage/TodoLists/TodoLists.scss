@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   width: 100vw;
 
+
   &__item {
 
 	display: flex;
@@ -23,6 +24,12 @@
 	position: relative;
 	border: 0.13rem solid #00BBD3;
 	width: 18rem;
+
+	&_hidden{
+	  visibility: hidden;
+	  opacity: 0;
+	  transition: visibility 0.3s, opacity 0.3s linear;
+	}
 
 
   }

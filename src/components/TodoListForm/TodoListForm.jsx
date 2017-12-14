@@ -9,16 +9,16 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 	let currentTodoList;
 	let id = match.params.id;
 
-	const mode = id ? 'edit' : 'new';
+	const mode = id ? 'imgEdit' : 'new';
 
-	if (mode === 'edit') currentTodoList = todolists.find(elem => elem.id === id);
-		if (mode === 'edit' && !todos[todos.length - 1]) {
+	if (mode === 'imgEdit') currentTodoList = todolists.find(elem => elem.id === id);
+		if (mode === 'imgEdit' && !todos[todos.length - 1]) {
 			currentTodoList.todos.forEach(el => {
 				events.onClickButtonAddTask(el.id, el.completed, el.text);
 			});
 		}
 
-	const title = (mode === 'edit') ? `${currentTodoList.title}` : '';
+	const title = (mode === 'imgEdit') ? `${currentTodoList.title}` : '';
 
 
 	return (
@@ -62,7 +62,7 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 					        	return;
 					        }
 
-					        if (mode === 'edit') events.onClickButtonSaveOldList(id, input.value, todos);
+					        if (mode === 'imgEdit') events.onClickButtonSaveOldList(id, input.value, todos);
 					        else events.onClickButtonSaveNewList(input.value, todos);
 					        events.onClickButtonClose();
 
