@@ -6,19 +6,20 @@ import TodoTaskForm from './TodoTaskForm';
 
 const TodoListForm = ({todos, match, history, todolists, events}) => {
 	let input;
+	let buttonSave;
 	let currentTodoList;
 	let id = match.params.id;
 
-	const mode = id ? 'imgEdit' : 'new';
+	const mode = id ? 'edit' : 'new';
 
-	if (mode === 'imgEdit') currentTodoList = todolists.find(elem => elem.id === id);
-		if (mode === 'imgEdit' && !todos[todos.length - 1]) {
-			currentTodoList.todos.forEach(el => {
-				events.onClickButtonAddTask(el.id, el.completed, el.text);
-			});
-		}
+	if (mode === 'edit') currentTodoList = todolists.find(elem => elem.id === id);
+	if (mode === 'edit' && !todos[todos.length - 1]) {
+		currentTodoList.todos.forEach(el => {
+			events.onClickButtonAddTask(el.id, el.completed, el.text);
+		});
+	}
 
-	const title = (mode === 'imgEdit') ? `${currentTodoList.title}` : '';
+	const title = (mode === 'edit') ? `${currentTodoList.title}` : '';
 
 
 	return (
@@ -28,7 +29,8 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 				<div className="group">
 					<input autoFocus required type="text" className="create-todolist__text" name="task" maxlength="22"
 					       defaultValue={title}
-					       ref={node => {input = node;
+					       ref={node => {
+						       input = node;
 					       }}
 					/>
 					<span className="highlight"> </span>
@@ -46,23 +48,24 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 								if (todos.length === 1) events.onClickText(todo.id, '');
 								else events.onClickDelete(todo.id);
 							}}
+							onCtrlEnter={()=>{ buttonSave.click();}}
 						/>
 					)}
 				</ul>
-				<button type="button" className="create-todolist__button create-todolist__button_save"
+				<button type="button" className="create-todolist__button create-todolist__button_save" ref={node => {buttonSave = node;}}
 				        onClick={event => {
 					        event.preventDefault();
 					        if (!input.value.trim()) {
-					        	input.className="create-todolist__text create-todolist__text_error";
-					        	input.nextSibling.nextSibling.nextSibling.className="create-todolist__label create-todolist__label_error";
+						        input.className = "create-todolist__text create-todolist__text_error";
+						        input.nextSibling.nextSibling.nextSibling.className = "create-todolist__label create-todolist__label_error";
 						        setTimeout(() => {
-							        input.className="create-todolist__text";
-					        	    input.nextSibling.nextSibling.nextSibling.className="create-todolist__label";
+							        input.className = "create-todolist__text";
+							        input.nextSibling.nextSibling.nextSibling.className = "create-todolist__label";
 						        }, 1000);
-					        	return;
+						        return;
 					        }
 
-					        if (mode === 'imgEdit') events.onClickButtonSaveOldList(id, input.value, todos);
+					        if (mode === 'edit') events.onClickButtonSaveOldList(id, input.value, todos);
 					        else events.onClickButtonSaveNewList(input.value, todos);
 					        events.onClickButtonClose();
 
