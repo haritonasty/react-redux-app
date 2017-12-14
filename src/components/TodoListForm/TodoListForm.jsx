@@ -53,7 +53,15 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 				<button type="button" className="create-todolist__button create-todolist__button_save"
 				        onClick={event => {
 					        event.preventDefault();
-					        if (!input.value.trim()) return;
+					        if (!input.value.trim()) {
+					        	input.className="create-todolist__text create-todolist__text_error";
+					        	input.nextSibling.nextSibling.nextSibling.className="create-todolist__label create-todolist__label_error";
+						        setTimeout(() => {
+							        input.className="create-todolist__text";
+					        	    input.nextSibling.nextSibling.nextSibling.className="create-todolist__label";
+						        }, 1000);
+					        	return;
+					        }
 
 					        if (mode === 'edit') events.onClickButtonSaveOldList(id, input.value, todos);
 					        else events.onClickButtonSaveNewList(input.value, todos);
@@ -74,7 +82,7 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 					        }
 					        events.onClickButtonAddTask();
 				        }}
-				>Add Task
+				>+1
 				</button>
 			</form>
 			<button className="create-todolist__button create-todolist__button_close"
