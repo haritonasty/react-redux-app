@@ -1,4 +1,5 @@
 import React from 'react';
+import deleteTask from '../../img/deleteTask.png';
 
 const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDelete}) => {
 	return (
@@ -15,7 +16,7 @@ const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDel
 					   onClickText(e.target.value);
 				   }}
 			/>
-			<img className="tasks-form__item__img-delete" src="img/deleteTask.svg" alt="del"
+			<img className="tasks-form__item__img-delete" src={deleteTask} alt="del"
 			     onClick={()=>{
 				     onClickDelete();
 			     }}

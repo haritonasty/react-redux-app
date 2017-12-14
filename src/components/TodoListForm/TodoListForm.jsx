@@ -28,15 +28,14 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 				<div className="group">
 					<input autoFocus type="text" className="create-todolist__text" name="task"
 					       defaultValue={title}
-					       required ref={node => {
-						input = node;
-					}}
+					       ref={node => {input = node;
+					       }}
 					/>
 					<span className="highlight"> </span>
 					<span className="bar"> </span>
 					<label className="create-todolist__label">Title</label>
 				</div>
-				<ul className="tasks-form">
+				<ul className="tasks-form scrollable">
 					{todos.map((todo, idx) =>
 						<TodoTaskForm
 							key={idx}

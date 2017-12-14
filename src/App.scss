@@ -9,7 +9,7 @@ body{
 }
 
 .todo-list {
-  background-color: rgba(179, 255, 255, 1);
+  background-color: #00BBD3;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -23,7 +23,6 @@ body{
 
   &__wrapper {
 	min-width: 100%;
-	background-color: azure;
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -31,10 +30,11 @@ body{
 	justify-content: center;
 	overflow: auto;
 	position: relative;
-	@include respond-to(handhelds) { background-color: azure;}
-	@include respond-to(medium-screens) {  background-color: floralwhite; }
-	@include respond-to(laptop-screens) {  background-color: lavender; }
-	@include respond-to(wide-screens) {  background-color: honeydew; }
+	background-color: white;
+	//@include respond-to(handhelds) { background-color: azure;}
+	//@include respond-to(medium-screens) {  background-color: floralwhite; }
+	//@include respond-to(laptop-screens) {  background-color: lavender; }
+	//@include respond-to(wide-screens) {  background-color: honeydew; }
   }
 
 }

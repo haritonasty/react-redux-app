@@ -4,6 +4,7 @@ import TodoList from '../TodoList/TodoList';
 
 import { updateTodoListCompleted } from '../../../actions/index';
 import { connect } from 'react-redux';
+import edit from '../../../img/edit.png';
 
 
 
@@ -23,7 +24,7 @@ const TodoListItem = ({title, todos, id, history, dispatch, onClickTodo}) => (
 	<li className="todolists__item">
 		<div className="todolists__header">
 			<span className="todolists__title">{title}</span>
-			<img className="todolists__edit" src='../../../img/edit.png'
+			<img className="todolists__edit" src={edit}
 			        onClick={() => {history.push(`/${id}/edit`)}}
 			/>
 		</div>

@@ -1,13 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800&subset=cyrillic");
+.scrollable::-webkit-scrollbar-track {
+  background-color: white; }
+
+.scrollable::-webkit-scrollbar {
+  width: 7px;
+  background-color: white; }
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #00BBD3; }
+
 .create-todolist {
   padding-top: 1rem;
-  width: 80vw;
-  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background-color: white;
-  position: relative; }
+  position: relative;
+  box-shadow: 12px 12px 14px rgba(0, 0, 0, 0.4); }
+  @media only screen and (max-width: 500px) {
+    .create-todolist {
+      width: 19rem;
+      height: 24rem; } }
+  @media only screen and (min-width: 501px) and (max-width: 799px) {
+    .create-todolist {
+      width: 26rem;
+      height: 28rem; } }
+  @media only screen and (min-width: 801px) and (max-width: 1023px) {
+    .create-todolist {
+      width: 30rem;
+      height: 80%; } }
+  @media only screen and (min-width: 1024px) {
+    .create-todolist {
+      width: 34rem;
+      height: 80%; } }
   .create-todolist__button {
     position: absolute;
     bottom: 2.2rem;
@@ -16,16 +42,17 @@
     color: white;
     padding: 0.6rem 0.7rem;
     border-radius: 2px;
-    font-size: 1rem; }
+    font-size: 1rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
     .create-todolist__button_add-task {
       left: 2.2rem;
       background-color: #FF9800; }
     .create-todolist__button_save {
       right: 6.6rem;
-      background-color: #2196F3; }
+      background-color: #FF9800; }
     .create-todolist__button_close {
       right: 2.2rem;
-      background-color: #607D8B; }
+      background-color: #00BBD3; }
 
 .create-todolist__form {
   margin-top: 0.5rem;
@@ -68,13 +95,13 @@
 
 .create-todolist__text:focus ~ .create-todolist__label, .create-todolist__text:valid ~ .create-todolist__label {
   top: -0.7rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #00BBD3; }
 
 .bar {
   position: relative;
   display: block;
-  width: 15rem; }
+  width: 16rem; }
 
 .bar:before, .bar:after {
   content: '';
@@ -133,15 +160,30 @@
 
 .tasks-form {
   width: 16rem;
-  padding: 0.1rem 0.3rem;
+  padding: 0.1rem 2rem;
   margin: 0.3rem 0;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
-  height: 18rem;
+  height: 20rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   list-style-type: none; }
+  @media only screen and (max-width: 500px) {
+    .tasks-form {
+      height: 14rem; } }
+  @media only screen and (min-width: 501px) and (max-width: 799px) {
+    .tasks-form {
+      height: 17rem; } }
+  @media only screen and (min-width: 801px) and (max-width: 1023px) {
+    .tasks-form {
+      height: 18rem;
+      margin-top: 0.8rem; } }
+  @media only screen and (min-width: 1024px) {
+    .tasks-form {
+      height: 18rem;
+      margin-top: 0.8rem; } }
 
 .tasks-form__item {
   width: 90%;
@@ -149,7 +191,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.1rem 0 0.1rem; }
+  padding: 0 0.1rem 0 0.1rem;
+  margin-bottom: 0.5rem; }
 
 .tasks-form__text {
   font-family: "Open Sans";
@@ -160,11 +203,3 @@
 .tasks-form__text_done {
   color: #00BBD3;
   text-decoration: line-through; }
-
-input[type="checkbox"] {
-  outline: 0;
-  margin-right: 10px; }
-
-input[type="checkbox"]:checked {
-  background: #00BBD3;
-  border: 2px solid #00BBD3; }

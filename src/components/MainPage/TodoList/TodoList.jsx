@@ -4,7 +4,7 @@ import Todo from './Todo';
 import { connect } from 'react-redux';
 
 const TodoList = ({ todos, dispatch, onClickTodo }) => (
-	<ul className="tasks" >
+	<ul className="tasks scrollable" >
 		{todos.map(todo =>
 			<Todo
 				key={todo.id}
