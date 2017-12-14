@@ -17,7 +17,7 @@
   @include respond-to(handhelds) {   width: 3.5rem; height: 3.5rem; font-size: 2rem; bottom: 1.2rem; right: 1.2rem;}
   @include respond-to(medium-screens) {  width: 4rem; height: 4rem; font-size: 2.3rem;  bottom: 1.8rem; right: 1.8rem;}
   @include respond-to(laptop-screens) {   width: 4.5rem; height: 4.5rem; font-size: 2.8rem;  bottom: 2.2rem; right: 2.2rem;}
-  @include respond-to(wide-screens) {   width: 5rem; height: 5rem;font-size: 3rem;  bottom: 3rem; right: 3rem;}
+  @include respond-to(wide-screens) {   width: 4.5rem; height: 4.5rem; font-size: 2.8rem;  bottom: 3rem; right: 3rem;}
 
   &:active {
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
