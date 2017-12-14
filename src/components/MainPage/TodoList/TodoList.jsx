@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Todo from './Todo';
-import { connect } from 'react-redux';
 
-const TodoList = ({ todos, dispatch, onClickTodo }) => (
+import Todo from './Todo';
+
+const TodoList = ({ todos, onClickTodo }) => (
 	<ul className="tasks scrollable" >
 		{todos.map(todo =>
 			<Todo
@@ -21,6 +21,7 @@ TodoList.propTypes = {
 		completed: PropTypes.bool.isRequired,
 		text: PropTypes.string.isRequired,
 	}).isRequired).isRequired,
+	onClickTodo: PropTypes.func.isRequired,
 };
 
-export default connect()(TodoList);
+export default TodoList;

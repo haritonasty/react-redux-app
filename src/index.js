@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {HashRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
+
 import arrayFindPolyfill from './polyfills/ArrayFindPolyfill';
 
 import App from './App';

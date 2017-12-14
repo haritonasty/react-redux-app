@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TodoList from '../TodoList/TodoList';
+import {connect} from 'react-redux';
 
 import {updateTodoListCompleted, deleteTodolist} from '../../../actions/index';
-import {connect} from 'react-redux';
+
+import TodoList from '../TodoList/TodoList';
 import imgEdit from '../../../img/edit.png';
 import imgDelete from '../../../img/deleteTodolist.png';
 
@@ -63,6 +64,15 @@ const TodoListItem = ({title, todos, id, history, onClickTodo, onClickDeleteTodo
 
 TodoListItem.propTypes = {
 	title: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	todos: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		completed: PropTypes.bool.isRequired,
+		text: PropTypes.string.isRequired,
+	}).isRequired).isRequired,
+	onClickTodo: PropTypes.func.isRequired,
+	onClickDeleteTodolist: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoListItem);

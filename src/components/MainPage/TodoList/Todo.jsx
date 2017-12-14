@@ -24,7 +24,10 @@ const Todo = ({ text, completed, id, onClick }) => (
 
 
 Todo.propTypes = {
+	id: PropTypes.string.isRequired,
+	completed: PropTypes.bool.isRequired,
 	text: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import deleteTask from '../../img/deleteTask.png';
 
 const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDelete, onCtrlEnter}) => {
@@ -28,6 +29,15 @@ const TodoTaskForm = ({text, completed, onClickText, onClickCheckbox, onClickDel
 			/>
 		</li>
 	)
+};
+
+TodoTaskForm.propTypes = {
+	completed: PropTypes.bool.isRequired,
+	text: PropTypes.string.isRequired,
+	onClickText: PropTypes.func.isRequired,
+	onClickCheckbox: PropTypes.func.isRequired,
+	onClickDelete: PropTypes.func.isRequired,
+	onCtrlEnter: PropTypes.func.isRequired,
 };
 
 

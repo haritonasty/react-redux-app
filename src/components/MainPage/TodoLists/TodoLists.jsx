@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+
 import TodoListItem from './TodoListItem';
-import EmptyLists from './../EmptyLists';
 import Masonry from 'masonry-layout';
+import EmptyLists from './../EmptyLists';
 
 const mapStateToProps = (state) => ({
 	todolists: state.todolists
@@ -56,6 +57,7 @@ TodoLists.propTypes = {
 		id: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
 	}).isRequired).isRequired,
+	history: PropTypes.object.isRequired,
 };
 
 

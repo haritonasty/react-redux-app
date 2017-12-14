@@ -98,6 +98,17 @@ const TodoListForm = ({todos, match, history, todolists, events}) => {
 	)
 };
 
-TodoListForm.propTypes = {};
+TodoListForm.propTypes = {
+	todos: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		completed: PropTypes.bool.isRequired,
+		text: PropTypes.string.isRequired,
+	}).isRequired).isRequired,
+	todolists: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+	}).isRequired).isRequired,
+	history: PropTypes.object.isRequired,
+};
 
 export default TodoListForm;

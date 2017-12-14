@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import TodoLists from './TodoLists/TodoLists';
 import ButtonNewList from './Button/ButtonNewList';
-import { connect } from 'react-redux';
 
 
 
@@ -12,4 +13,8 @@ const MainPage = ({history}) =>(
 	</div>
 );
 
-export default connect()(MainPage);
+MainPage.propTypes = {
+	history: PropTypes.object.isRequired,
+};
+
+export default MainPage;
