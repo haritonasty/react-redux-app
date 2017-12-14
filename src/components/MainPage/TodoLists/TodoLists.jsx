@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import TodoListItem from './TodoListItem';
+import EmptyLists from './../EmptyLists';
 import Masonry from 'masonry-layout';
 
 const mapStateToProps = (state) => ({
@@ -14,24 +15,27 @@ class TodoLists extends React.Component {
 		super(props);
 	}
 
-
-
 	componentDidMount(){
-		new Masonry(".todolists", {
-			itemSelector: ".todolists__item",
-			fitWidth: true
-		});
+		if(this.props.todolists.length) {
+			new Masonry(".todolists", {
+				itemSelector: ".todolists__item",
+				fitWidth: true
+			});
+		}
 	}
 
 	componentDidUpdate(){
-		new Masonry(".todolists", {
-			itemSelector: ".todolists__item",
-			fitWidth: true
-		});
+		if(this.props.todolists.length) {
+			new Masonry(".todolists", {
+				itemSelector: ".todolists__item",
+				fitWidth: true
+			});
+		}
 	}
 
 	render() {
-		return (
+		if (!this.props.todolists.length) return (<EmptyLists/>);
+		else return (
 			<ul className="todolists" >
 				{this.props.todolists.map(todolist =>
 					<TodoListItem

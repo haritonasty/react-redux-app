@@ -295,11 +295,48 @@
   position: relative;
   list-style-type: none;
   padding: 1.5rem  0 0 0;
+  margin: 0;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100vw; }
+  .todolists__empty {
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    @media only screen and (max-width: 500px) {
+      .todolists__empty {
+        width: 14rem; } }
+    @media only screen and (min-width: 501px) and (max-width: 799px) {
+      .todolists__empty {
+        width: 17rem; } }
+    @media only screen and (min-width: 801px) and (max-width: 1023px) {
+      .todolists__empty {
+        width: 20rem; } }
+    @media only screen and (min-width: 1024px) {
+      .todolists__empty {
+        width: 20rem; } }
+    .todolists__empty_text {
+      margin-top: 2rem;
+      font-family: "Open Sans";
+      font-weight: 400;
+      color: #757575;
+      text-align: center; }
+      @media only screen and (max-width: 500px) {
+        .todolists__empty_text {
+          font-size: 1.2rem; } }
+      @media only screen and (min-width: 501px) and (max-width: 799px) {
+        .todolists__empty_text {
+          font-size: 1.6rem; } }
+      @media only screen and (min-width: 801px) and (max-width: 1023px) {
+        .todolists__empty_text {
+          font-size: 1.7rem; } }
+      @media only screen and (min-width: 1024px) {
+        .todolists__empty_text {
+          font-size: 1.7rem; } }
   .todolists__progressbar {
     margin: 0 auto 0 auto;
     width: 100%;
@@ -340,9 +377,11 @@
     width: 80%;
     overflow: hidden; }
   .todolists__edit {
+    cursor: pointer;
     margin-top: 0.2rem;
     margin-right: 0.2rem; }
   .todolists__delete {
+    cursor: pointer;
     margin-top: 0.2rem;
     margin-right: 0.6rem; }
 
@@ -427,7 +466,7 @@
   border-right-style: none; }
 
 body {
-  font-size: 1vw; }
+  font-size: 16px; }
 
 .todo-list {
   background-color: #00BBD3;

@@ -32,12 +32,12 @@ const TodoListItem = ({title, todos, id, history, onClickTodo, onClickDeleteTodo
 		<li className="todolists__item" ref={node => {li = node;}}>
 			<div className="todolists__header">
 				<span className="todolists__title">{title}</span>
-				<img className="todolists__edit" src={imgEdit}
+				<img className="todolists__edit" src={imgEdit} alt="edit"
 				     onClick={() => {
 					     history.push(`/${id}/edit`)
 				     }}
 				/>
-				<img className="todolists__delete" src={imgDelete}
+				<img className="todolists__delete" src={imgDelete} alt="delete"
 				     onClick={() => {
 					     li.className="todolists__item todolists__item_hidden";
 					     setTimeout(()=>{onClickDeleteTodolist(id);},350);

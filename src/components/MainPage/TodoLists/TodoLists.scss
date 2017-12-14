@@ -5,17 +5,41 @@
   min-height: 100vh;
   position: relative;
   list-style-type: none;
-  padding: 1.5rem  0 0 0 ;
+  padding: 1.5rem  0 0 0;
+  margin: 0;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100vw;
 
+  &__empty{
+	height: 15rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@include respond-to(handhelds) {  width:14rem;}
+	@include respond-to(medium-screens) { width:17rem;}
+	@include respond-to(laptop-screens) {   width:20rem;}
+	@include respond-to(wide-screens) { width:20rem;}
+
+	&_text{
+	  margin-top:2rem;
+	  font-family: "Open Sans";
+	  font-weight: 400;
+	  color: #757575;
+	  text-align: center;
+	  @include respond-to(handhelds) {  font-size: 1.2rem;}
+	  @include respond-to(medium-screens) { font-size: 1.6rem;}
+	  @include respond-to(laptop-screens) {   font-size: 1.7rem;}
+	  @include respond-to(wide-screens) {  font-size: 1.7rem;}
+	}
+  }
+
   &__progressbar{
 	margin: 0 auto 0 auto;
 	width:100%;
-	//border-radius: 1rem;
 	height: 0.2rem;
 	background-color: #00BBD3;
 	position: relative;
@@ -30,11 +54,8 @@
   }
 
 
-
   &__item {
-
 	display: flex;
-
 	flex-direction: column;
 	background-color: white;
 	border-radius: 0.2rem;
@@ -72,11 +93,13 @@
   }
 
   &__edit{
+	cursor: pointer;
 	margin-top: 0.2rem;
 	margin-right: 0.2rem;
   }
 
   &__delete{
+	cursor: pointer;
 	margin-top: 0.2rem;
 	margin-right: 0.6rem;
   }

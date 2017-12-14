@@ -30,6 +30,6 @@ if (module.hot) {
 	})
 }
 
-if (!window.Array.from) {
+if (!window.Array.find) {
 	arrayFindPolyfill();
 }

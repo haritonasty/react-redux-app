@@ -5,7 +5,7 @@
 @import 'components/MainPage/TodoList/TodoList.scss';
 
 body{
-  font-size:1vw;
+  font-size:16px;
 }
 
 .todo-list {
@@ -31,10 +31,6 @@ body{
 	overflow: auto;
 	position: relative;
 	background-color: azure;
-	//@include respond-to(handhelds) { background-color: azure;}
-	//@include respond-to(medium-screens) {  background-color: floralwhite; }
-	//@include respond-to(laptop-screens) {  background-color: lavender; }
-	//@include respond-to(wide-screens) {  background-color: honeydew; }
   }
 
 }
